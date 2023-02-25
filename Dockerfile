@@ -22,9 +22,12 @@ RUN python -m venv /py && \
     mkdir -p /vol/web/media && \
     chown -R app:app /vol && \
     chmod -R 755 /vol && \
-    chmod -R +x /scriots
+    chmod -R +x /scripts
 
 
 
-ENV PATH="/py/bin:$PATH"
+ENV PATH="/scripts:/py/bin:$PATH"
+
 USER app
+
+CMD ["run.sh"]
